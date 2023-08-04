@@ -4,7 +4,10 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3002/",
+    // para simular ambiente local
+    // publicPath: "http://localhost:3002/",
+    // para similar ambiente de producción (usar npx serve -l 51957 dist ). Este puerto se puede cambiar colocando npx serve dist y el puerto que te retorne. Para esto se debe realizar el build de la aplicación primero. También se puede colocar el mismo puerto 3002 (es el que se definió al principio) y seguir usando ese, pero la diferencia es que ahora se tendría que levantar el servidor con ese puerto usando npx serve -l 3002 dist
+    publicPath: "http://localhost:51957/",
   },
 
   resolve: {
@@ -12,7 +15,10 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 3002,
+    // para simular ambiente local
+    // port: 3002,
+    // para similar ambiente de producción (usar npx serve -l 51957 dist ). Este puerto se puede cambiar colocando npx serve dist y el puerto que te retorne. Para esto se debe realizar el build de la aplicación primero. También se puede colocar el mismo puerto 3002 (es el que se definió al principio) y seguir usando ese, pero la diferencia es que ahora se tendría que levantar el servidor con ese puerto usando npx serve -l 3002 dist
+    port: 51957,
     historyApiFallback: true,
   },
 

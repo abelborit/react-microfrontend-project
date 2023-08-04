@@ -48,7 +48,7 @@ module.exports = (_, argv) => ({
         navbarModuleFederation:
           "navbar_component@http://localhost:3001/remoteEntry.js",
         counterModuleFederation:
-          "counter_mf_app@http://localhost:3002/remoteEntry.js",
+          "counter_mf_app@http://localhost:51957/remoteEntry.js",
       },
       // exposes -> es para exponer microfrontend. Se tiene que colocar en un string y colocar ./ para que el nombre del componente sea tal cual se coloca que normalmente es el nombre del propio componente. Luego exponer el componente.
       exposes: {},
