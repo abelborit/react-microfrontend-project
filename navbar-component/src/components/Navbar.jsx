@@ -10,5 +10,5 @@ const Navbar = () => {
   );
 };
 
-// es importante exponer por defecto el componente para que el orquestador pueda renderizarlo
+// Es importante exponer por defecto el componente que se está federando para que el orquestador o microfrontend principal pueda renderizarlo
 export default Navbar;
