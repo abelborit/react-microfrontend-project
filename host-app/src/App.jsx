@@ -5,12 +5,14 @@ import ReactDOM from "react-dom/client";
 
 // importar el módulo que se está federando: navbarModuleFederation es el microfrontend que se expuso y Navbar es el nombre que le colocamos al componente federado. Como es una importación por default en el módulo yo le estoy colocando un nombre representativo a lo que se hace, que es la federación de módulos
 import NavbarModuleFederation from "navbarModuleFederation/Navbar";
+import CounterModuleFederation from "counterModuleFederation/CounterMF";
 
 import "./index.css";
 
 const App = () => (
   <>
     <NavbarModuleFederation />
+    <CounterModuleFederation />
     <h1>Host App</h1>
   </>
 );

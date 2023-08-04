@@ -44,7 +44,9 @@ module.exports = (_, argv) => ({
       name: "counter_mf_app",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        "./CounterMF": "./src/components/Counter.jsx",
+      },
       shared: {
         ...deps,
         react: {
