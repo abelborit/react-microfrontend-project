@@ -38,3 +38,11 @@ Hay una arquitectura de la mano con React y Webpack Module Federation, que son t
 - [add]
 - [update]
 - [fix]
+
+---
+
+## Herramientas
+
+1. Para crear un estructura básica para microfrontend usando module federation: npx create-mf-app
+
+   1.1 Module federation permite crear varios tipos de aplicación: Aplicación web (frontend), API Server (backend) y una librería
