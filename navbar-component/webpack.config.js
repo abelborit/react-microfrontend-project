@@ -43,8 +43,12 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "navbar_component",
       filename: "remoteEntry.js",
+      // remotes -> es para llamar microfrontend. Darle un nombre al módulo que vamos a llamar y luego llamarlo con la siguiente nomenclatura: "nombre del módulo que se está federando@direccion de la URL/remoteEntry.js"
       remotes: {},
-      exposes: {},
+      // exposes -> es para exponer microfrontend. Se tiene que colocar en un string y colocar ./ para que el nombre del componente sea tal cual se coloca que normalmente es el nombre del propio componente. Luego exponer el componente.
+      exposes: {
+        "./Navbar": "./src/components/Navbar.jsx",
+      },
       shared: {
         ...deps,
         react: {
