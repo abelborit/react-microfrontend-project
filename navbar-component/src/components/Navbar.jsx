@@ -5,7 +5,7 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <nav>
-      <p>Navbar Component</p>
+      <p>Counter Micro-Frontend (Module Federation)</p>
     </nav>
   );
 };

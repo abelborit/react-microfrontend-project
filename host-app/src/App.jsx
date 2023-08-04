@@ -12,8 +12,11 @@ import "./index.css";
 const App = () => (
   <>
     <NavbarModuleFederation />
-    <CounterModuleFederation />
-    <h1>Host App</h1>
+
+    <div className="container">
+      <h2>Host App</h2>
+      <CounterModuleFederation />
+    </div>
   </>
 );
 
