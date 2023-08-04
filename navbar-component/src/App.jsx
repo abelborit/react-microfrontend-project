@@ -3,15 +3,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import { Navbar } from "./components/Navbar";
+
 import "./index.css";
 
 const App = () => (
-  <div className="container">
-    <div>Name: navbar-component</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
-  </div>
+  <>
+    <Navbar />
+  </>
 );
 
 ReactDOM.createRoot(document.getElementById("app")).render(<App />);
