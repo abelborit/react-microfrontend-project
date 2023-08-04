@@ -2,10 +2,13 @@ import React from "react";
 
 import "./Navbar.css";
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <nav>
-      <h1>Navbar</h1>
+      <p>Navbar Component</p>
     </nav>
   );
 };
+
+// es importante exponer por defecto el componente para que el orquestador pueda renderizarlo
+export default Navbar;
