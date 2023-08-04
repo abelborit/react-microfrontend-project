@@ -3,15 +3,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.css";
+import Counter from "./components/Counter";
 
 const App = () => (
-  <div className="container">
-    <div>Name: counter-mf-app</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
-  </div>
+  <>
+    <Counter />
+  </>
 );
 
 ReactDOM.createRoot(document.getElementById("app")).render(<App />);
