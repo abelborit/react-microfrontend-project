@@ -1,3 +1,5 @@
+// .babelrc me permite traducir código de React a código de JavaScript que sea interpretado en distintas versiones de navegadores
+
 {
   "presets": [
     ["@babel/preset-react", { "runtime": "automatic" }],
