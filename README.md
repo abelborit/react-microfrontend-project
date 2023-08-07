@@ -32,7 +32,7 @@ Hay una arquitectura de la mano con React y Webpack Module Federation, que son t
 
 ---
 
-## Sintaxis para commit
+## Nomenclatura para los commit
 
 - [create]
 - [add]
@@ -43,7 +43,24 @@ Hay una arquitectura de la mano con React y Webpack Module Federation, que son t
 
 ## Herramientas
 
+- React versión +18
+- npx create-mf-app
+- Normalizar estilos del css (https://necolas.github.io/normalize.css/)
+- Estilos con Emotion (https://emotion.sh/docs/introduction)
+- Para levantar servidores de prueba de producción: `npx serve` (cada vez que se coloque este comando me dará un puerto distinto, para yo colocar un puerto en específico es colocar `npx serve -l ####`). Se puede entrar a la carpeta donde se quiere levantar el puerto y colocar `npx serve -l ####` o sino desde su carpeta padre colocar `npx serve -l #### nombre_carpeta`. También se puede colocar el mismo puerto que se definió al principio (por ejemplo 3001) y seguir usando ese, pero la diferencia es que ahora se tendría que levantar el servidor con ese puerto usando `npx serve -l 3000 dist/build`
+- Para hacer un deploy en servidor de internet se está usando: Netlify (hacer del build de las aplicaciones con las URL que te da Netflify para poder deployarlo)
+
 1. Para crear un estructura básica para microfrontend usando module federation: npx create-mf-app
 
    1.1 Module federation permite crear varios tipos de aplicación: Aplicación web (frontend), API Server (backend) y una librería.
    1.2 Usar este paquete todavía utiliza la implementación de React 17, pero si nos fijamos en el package.json ya usa la versión React 18, por eso nos aparece el siguiente problema: **_Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead. Until you switch to the new API, your app will behave as if it's running React 17._** Para solucionar esto se tiene que modificar el src/App.jsx a la versión de React 18 para poder usar los hooks y las nuevas implementación de la versión 18.
+
+---
+
+## Comentarios
+
+- Al hacer microfrontend en cuanto a los estilos pueden haber conflictos o que no se muestren desde un microfrontend secundario al microfrontend principal (host u orquestador el cual será el microfrontend que cargará los demás módulos). Estos estilos pueden tener conflictos con clases iguales tanto en los módulos como en el orquestador principal, se pueden usar técnicas como prefijos antes de las clases o module css pero para esto, es muy común usar Styled Components en vez de usar importaciones de hojas de estilos css, para hacer más facil esta comunicación y que no hayan problemas de estilos.
+
+- Al hacer cambios o refactorizar código en las configuraciones de Webpack es necesario tumbar y volver a cargar el servidor desde la terminal para que pueda actualizarse y tomar los últimos cambios realizados.
+
+- Es importante exponer por defecto el componente que se está federando para que el orquestador o microfrontend principal pueda renderizarlo
