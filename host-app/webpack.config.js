@@ -4,7 +4,10 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3000/",
+    // para simular ambiente local
+    // publicPath: "http://localhost:3000/",
+    // página de producción subida a Netlify
+    publicPath: "https://host-mf-project-app.netlify.app/",
   },
 
   resolve: {
@@ -46,9 +49,9 @@ module.exports = (_, argv) => ({
       // remotes -> es para llamar microfrontend. Darle un nombre al módulo que vamos a llamar y luego llamarlo con la siguiente nomenclatura: "nombre del módulo que se está federando@direccion de la URL/remoteEntry.js"
       remotes: {
         navbarModuleFederation:
-          "navbar_component@http://localhost:3001/remoteEntry.js",
+          "navbar_component@https://navbar-mf-project-app.netlify.app//remoteEntry.js",
         counterModuleFederation:
-          "counter_mf_app@http://localhost:51957/remoteEntry.js",
+          "counter_mf_app@https://counter-mf-project-app.netlify.app//remoteEntry.js",
       },
       // exposes -> es para exponer microfrontend. Se tiene que colocar en un string y colocar ./ para que el nombre del componente sea tal cual se coloca que normalmente es el nombre del propio componente. Luego exponer el componente.
       exposes: {},

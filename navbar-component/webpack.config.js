@@ -4,7 +4,10 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3001/",
+    // para simular ambiente local
+    // publicPath: "http://localhost:3001/",
+    // página de producción subida a Netlify
+    publicPath: "https://navbar-mf-project-app.netlify.app/",
   },
 
   resolve: {
