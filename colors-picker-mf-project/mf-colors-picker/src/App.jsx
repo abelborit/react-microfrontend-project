@@ -3,14 +3,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import ColorPicker from "./components/ColorPicker";
+
 import "./index.css";
 
 const App = () => (
   <div className="container">
-    <div>Name: mf-colors-picker</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
+    <ColorPicker />
   </div>
 );
 

@@ -3,15 +3,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import ColorPicker from "colorPickerModuleFederation/ColorPicker";
+
 import "./index.css";
 
 const App = () => (
-  <div className="container">
-    <div>Name: host-app</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
-  </div>
+  <>
+    <ColorPicker />
+  </>
 );
 
 ReactDOM.createRoot(document.getElementById("app")).render(<App />);
