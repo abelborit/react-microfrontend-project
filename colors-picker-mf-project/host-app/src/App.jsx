@@ -3,7 +3,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import ColorPicker from "colorPickerModuleFederation/ColorPicker";
+import ColorPickerMF from "colorPickerModuleFederation/ColorPicker";
+import ColorListMF from "colorListModuleFederation/ColorList";
 
 // import "./index.css";
 
@@ -13,9 +14,12 @@ const App = () => (
 
     <div className="container mt-4">
       <div className="row">
-        <div className="col-12 col-md-4">Lista de colores</div>
+        <div className="col-12 col-md-4">
+          <ColorListMF />
+        </div>
+
         <div className="col-12 col-md-8">
-          <ColorPicker />
+          <ColorPickerMF />
         </div>
       </div>
     </div>

@@ -46,6 +46,8 @@ module.exports = (_, argv) => ({
       remotes: {
         colorPickerModuleFederation:
           "mf_colors_picker@http://localhost:3001/remoteEntry.js",
+        colorListModuleFederation:
+          "mf_color_list@http://localhost:3002/remoteEntry.js",
       },
       exposes: {},
       shared: {
