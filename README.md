@@ -46,7 +46,8 @@ Hay una arquitectura de la mano con React y Webpack Module Federation, que son t
 - React versión +18
 - npx create-mf-app
 - Normalizar estilos del css (https://necolas.github.io/normalize.css/)
-- Estilos con Emotion (https://emotion.sh/docs/introduction)
+- Estilos con Emotion (https://emotion.sh/docs/introduction) (counter-mf-project)
+- Estilos con Bootstrap (https://getbootstrap.com/docs/5.3/getting-started/introduction/) (colors-picker-mf-project)
 - Para levantar servidores de prueba de producción: `npx serve` (cada vez que se coloque este comando me dará un puerto distinto, para yo colocar un puerto en específico es colocar `npx serve -l ####`). Se puede entrar a la carpeta donde se quiere levantar el puerto y colocar `npx serve -l ####` o sino desde su carpeta padre colocar `npx serve -l #### nombre_carpeta`. También se puede colocar el mismo puerto que se definió al principio (por ejemplo 3001) y seguir usando ese, pero la diferencia es que ahora se tendría que levantar el servidor con ese puerto usando `npx serve -l 3000 dist/build`
 - Para hacer un deploy en servidor de internet se está usando: Netlify (hacer del build de las aplicaciones con las URL que te da Netflify para poder deployarlo)
 
