@@ -3,15 +3,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.css";
+import ColorList from "./components/ColorList";
 
-const App = () => (
-  <div className="container">
-    <div>Name: mf-color-list</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
-  </div>
-);
+// import "./index.css";
+
+const App = () => {
+  /* para probar que funciona todo independientemente */
+  return (
+    <>
+      <ColorList colorsList={[]} />
+      <hr />
+      <ColorList colorsList={["#e42525", "#252be4"]} />
+    </>
+  );
+};
 
 ReactDOM.createRoot(document.getElementById("app")).render(<App />);

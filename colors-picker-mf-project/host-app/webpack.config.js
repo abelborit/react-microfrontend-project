@@ -44,6 +44,7 @@ module.exports = (_, argv) => ({
       name: "host_app",
       filename: "remoteEntry.js",
       remotes: {
+        // aquí ya se está importanto el colorPicker y su remoteEntry entonces si tiene componentes, funciones, etc, solo se manda a llamar
         colorPickerModuleFederation:
           "mf_colors_picker@http://localhost:3001/remoteEntry.js",
         colorListModuleFederation:

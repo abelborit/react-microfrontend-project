@@ -6,11 +6,31 @@ import ReactDOM from "react-dom/client";
 import ColorPicker from "./components/ColorPicker";
 
 import "./index.css";
+import { useColors, HEXToRGB } from "./hooks/useColors";
 
-const App = () => (
-  <div className="container">
-    <ColorPicker />
-  </div>
-);
+const App = () => {
+  /* para probar que funciona todo independientemente */
+  const {
+    color,
+    handleChangeColor,
+    handleSubmitSaveColor,
+    handleDeleteColorsList,
+  } = useColors();
+  const { rColor, gColor, bColor } = HEXToRGB(color);
+
+  return (
+    <div className="container">
+      <ColorPicker
+        color={color}
+        handleChangeColor={handleChangeColor}
+        handleSubmitSaveColor={handleSubmitSaveColor}
+        handleDeleteColorsList={handleDeleteColorsList}
+        rColor={rColor}
+        gColor={gColor}
+        bColor={bColor}
+      />
+    </div>
+  );
+};
 
 ReactDOM.createRoot(document.getElementById("app")).render(<App />);

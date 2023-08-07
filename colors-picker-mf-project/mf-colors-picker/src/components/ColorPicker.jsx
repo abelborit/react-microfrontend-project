@@ -1,24 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+// import { HEXToRGB, useColors } from "../hooks/useColors";
 
-const ColorPicker = () => {
-  const [color, setColor] = useState("#000000");
-  console.log(color);
-
-  const HEXToRGB = (hexColor) => {
-    const r = parseInt(hexColor.slice(1, 3), 16);
-    const g = parseInt(hexColor.slice(3, 5), 16);
-    const b = parseInt(hexColor.slice(5, 7), 16);
-
-    // return {r, g, b} // return an object
-    return [r, g, b];
-  };
-
-  const handleChangeColor = (e) => {
-    setColor(e.target.value);
-  };
+const ColorPicker = ({
+  color,
+  handleChangeColor,
+  handleSubmitSaveColor,
+  handleDeleteColorsList,
+  rColor,
+  gColor,
+  bColor,
+}) => {
+  // aquí el useColors y HEXToRGB están en un archivo que es un custom hook pero en el microfronted host-app no es reactivo, es decir, en el host-app es una nueva instancia totalmente independiente a la que existe en el microfrontend mf-colors-picker, entonces para que se pueda cambiar el estado de un microfrontend a otro, se necesitan pasar parámetros para que el microfronted mf-colors-picker los pueda utilizar (se está haciendo que el microfrontend host-app se encargue de la lógica)
+  // const { color, handleChangeColor, handleSubmitSaveColor } =
+  //   useColors();
+  // const { rColor, gColor, bColor } = HEXToRGB(color);
 
   return (
-    <form>
+    <form onSubmit={handleSubmitSaveColor}>
       <input
         type="color"
         className="form-control"
@@ -43,11 +41,34 @@ const ColorPicker = () => {
 
           <span>{color}</span>
           <div className="mt-2">
-            <span className="m-2">R:{HEXToRGB(color)[0]}</span>
-            <span>G:{HEXToRGB(color)[1]}</span>
-            <span className="m-2">B:{HEXToRGB(color)[2]}</span>
+            <span className="m-2">R:{rColor}</span>
+            <span>G:{gColor}</span>
+            <span className="m-2">B:{bColor}</span>
           </div>
         </h2>
+
+        <div
+          className="mt-4"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignContent: "center",
+            gap: "1.25rem",
+          }}
+        >
+          <button type="submit" className="btn btn-success">
+            Guardar Color
+          </button>
+
+          <button
+            type="button"
+            className="btn btn-outline-danger"
+            onClick={handleDeleteColorsList}
+          >
+            Eliminar Lista
+          </button>
+        </div>
       </div>
     </form>
   );

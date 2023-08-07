@@ -45,7 +45,11 @@ module.exports = (_, argv) => ({
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
+        /* se puede exponer tanto componentes, funciones, customs hooks, etc */
+        // aquí se expone un componente
         "./ColorPicker": "./src/components/ColorPicker.jsx",
+        // aquí se expone un custom hook
+        "./useColors": "./src/hooks/useColors.js",
       },
       shared: {
         ...deps,
