@@ -44,7 +44,9 @@ module.exports = (_, argv) => ({
       name: "mf_navbar",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        "./NavbarFederated": "./src/components/Navbar.jsx",
+      },
       shared: {
         ...deps,
         react: {
