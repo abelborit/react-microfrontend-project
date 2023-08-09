@@ -1,26 +1,34 @@
 import React, { useState } from "react";
 
-const Counter = ({ initialCounter = 0 }) => {
+const Counter = ({ initialCounter }) => {
+  if (!initialCounter) {
+    throw new Error("Error en el mf-counter");
+  }
+
   const [counter, setCounter] = useState(initialCounter);
 
   return (
-    <div className="text-3xl">
-      <button
-        className="bg-green-300 text-center font-bold rounded-md p-2"
-        onClick={() => setCounter(counter + 1)}
-      >
-        +1
-      </button>
+    <>
+      <span className="text-2xl mb-2">Initial Value: {initialCounter}</span>
 
-      <span className="mx-8">{counter}</span>
+      <div className="text-3xl">
+        <button
+          className="bg-green-300 text-center font-bold rounded-md p-2"
+          onClick={() => setCounter(counter + 1)}
+        >
+          +1
+        </button>
 
-      <button
-        className="bg-red-400 text-center font-bold rounded-md p-2"
-        onClick={() => setCounter(counter - 1)}
-      >
-        -1
-      </button>
-    </div>
+        <span className="mx-8">{counter}</span>
+
+        <button
+          className="bg-red-400 text-center font-bold rounded-md p-2"
+          onClick={() => setCounter(counter - 1)}
+        >
+          -1
+        </button>
+      </div>
+    </>
   );
 };
 

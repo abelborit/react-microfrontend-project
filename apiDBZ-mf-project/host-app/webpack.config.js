@@ -46,6 +46,8 @@ module.exports = (_, argv) => ({
       remotes: {
         NavbarModuleFederation:
           "mf_navbar@http://localhost:8081/remoteEntry.js",
+        CounterModuleFederation:
+          "mf_counter@http://localhost:8082/remoteEntry.js",
       },
       exposes: {},
       shared: {
