@@ -49,7 +49,12 @@ module.exports = (_, argv) => ({
       name: "mf_cards",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        // en teoría debería ser así porque se está exponiendo el componente, pero esto sería para un host de Vue y en este caso se está trabajando con un host de react
+        // "./CardsFederated": "./src/components/Cards.vue",
+        // como es un host de react entonces se hará de la siguiente forma:
+        "./PlaceCardsFederated": "./src/placeCards.js",
+      },
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({
