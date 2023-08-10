@@ -47,15 +47,10 @@ import { onMounted, ref } from "vue";
 const characters = ref([]);
 
 const getCharacters = async () => {
-  const response = await fetch("https://rickandmortyapi.com/api/character", {
-    headers: {
-      accept: "application/json",
-    },
-  });
+  const response = await fetch("https://rickandmortyapi.com/api/character");
 
   const data = await response.json();
-
-  console.log(data.results);
+  // console.log(data.results);
 
   // setear la data
   characters.value = data.results;
