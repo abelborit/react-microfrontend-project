@@ -9,8 +9,9 @@ import { Loader } from "./components/Loader";
 // import NotFound from "./pages/NotFound";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
-const PersonajesPage = lazy(() => import("./pages/PersonajesPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
+const PersonajesPage = lazy(() => import("./pages/PersonajesPage"));
+const CharacterDetailPage = lazy(() => import("./pages/CharacterDetailPage"));
 
 import "./index.scss";
 
@@ -34,6 +35,15 @@ const App = () => (
           element={
             <Suspense fallback={<Loader />}>
               <PersonajesPage />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/personajes/:id"
+          element={
+            <Suspense fallback={<Loader />}>
+              <CharacterDetailPage />
             </Suspense>
           }
         />

@@ -44,7 +44,9 @@ module.exports = (_, argv) => ({
       name: "mf_characterDetail",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        "./CharacterDetailFederated": "./src/components/CharacterDetail.jsx",
+      },
       shared: {
         ...deps,
         react: {
