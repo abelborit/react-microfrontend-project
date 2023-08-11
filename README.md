@@ -48,6 +48,8 @@ Hay una arquitectura de la mano con React y Webpack Module Federation, que son t
 - Normalizar estilos del css (https://necolas.github.io/normalize.css/)
 - Estilos con Emotion (https://emotion.sh/docs/introduction) (counter-mf-project)
 - Estilos con Bootstrap (https://getbootstrap.com/docs/5.3/getting-started/introduction/) (colors-picker-mf-project) Se está utilizando solo en el host-app de colors-picker-mf-project para que este use los estilos de bootstrap y sus microfronend tendrán un estilo muy vago y simple ya que no tienen bootstrap.
+- Para utilizar Docker: https://www.docker.com/products/docker-desktop/ y también https://learn.microsoft.com/es-es/windows/wsl/install
+
 - Para levantar servidores de prueba de producción: `npx serve` (cada vez que se coloque este comando me dará un puerto distinto, para yo colocar un puerto en específico es colocar `npx serve -l ####`). Se puede entrar a la carpeta donde se quiere levantar el puerto y colocar `npx serve -l ####` o sino desde su carpeta padre colocar `npx serve -l #### nombre_carpeta`. También se puede colocar el mismo puerto que se definió al principio (por ejemplo 3001) y seguir usando ese, pero la diferencia es que ahora se tendría que levantar el servidor con ese puerto usando `npx serve -l 3000 dist/build`
 - Para hacer un deploy en servidor de internet se está usando: Netlify (hacer del build de las aplicaciones con las URL que te da Netflify para poder deployarlo)
 - Alertas o notificaciones dinámicas con Sweetalert2 (https://sweetalert2.github.io/)
@@ -66,3 +68,9 @@ Hay una arquitectura de la mano con React y Webpack Module Federation, que son t
 - Al hacer cambios o refactorizar código en las configuraciones de Webpack es necesario tumbar y volver a cargar el servidor desde la terminal para que pueda actualizarse y tomar los últimos cambios realizados.
 
 - Es importante exponer por defecto el componente que se está federando para que el orquestador o microfrontend principal pueda renderizarlo
+
+- El .dockerignore es una copia de lo que tiene .gitignore para ignorar lo mismo que se puede evitar reconstruir dentro del contenedor
+
+- Sin la creación del archivo docker-compose.yml con la configuración en cada microfrontend ya se tiene listo para crear una imagen de docker por cada microfrontend pero hacerlo así sería generar 5 imágenes de docker y por ende 5 contenedores diferentes y esos 5 contenedores directamente no van a funcionar porque se tendría que levantar 5 instancias de cada uno de ellos entonces hay que configurar un comando que se colocará en docker-compose.yml quien ayudará a automatizar el cómo se va a construir y levantar todas las 5 instancias juntas. Para poder levantar el docker compose se tiene que estar en al ruta del proyecto "apiRickMorty-mf-project" y en la terminal colocar "docker compose up" eso hará que tome el archivo de configuración del docker compose y levantar todo y cuando se quiera detener los contenedores se usa "docker compose down" y eso también borrará las redes que docker crea en el Docker Desktop
+
+- Para el paso anterior tener presente que en cuanto a las rutas si se entra siguiendo el flujo y las interacciones funciona todo, pero cuando se entra al detalle de algún personaje (cards) entonces no cargará y no significa que esté mal la aplicación sino que por ejemplo, si se sigue el flujo funciona normal pero cuando se quiera recargar la página dará un error y eso pasa porque es una SPA (Single Page Application) lo que quiere decir que las rutas se cargan desde tiempo de ejecución de las aplicaciones. Para esto se podría intentar colocar un HashRouter en lugar de un BrowserRouter (intentar cuando se despliegue con Docker, actualmente no se desplegó usando eso)

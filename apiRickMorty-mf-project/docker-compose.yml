@@ -1,0 +1,45 @@
+# versión del docker compose
+version: "3.9"
+# definir servicios que son los nombres de todos los contenedores
+services:
+  # (darse cuenta que tiene una tabulación)
+  host_app:
+    # para construir la aplicación en el path que coloquemos pero en vez de eso vamos a definir un contexto
+    build:
+      # este context es para definir a partir de qué carpeta vamos a empezar a trabajar
+      context: ./host-app
+      dockerfile: ./Dockerfile
+    # definir puertos
+    ports:
+      # "puerto de la máquina física que es mi computadora:puerto que estoy mapeando del contenedor" (se podría colocar también "3000:8080" que quiere decir que la dirección sea localhost:3000)
+      - "8080:8080"
+    # crear conexión dentro de todos los demás contenedores (esto es importante aquí porque es el host de toda la aplicación)
+    links:
+      - mf_navbar
+      - mf_counter
+      - mf_cards
+      - mf_characterDetail
+  mf_navbar:
+    build:
+      context: ./mf-navbar
+      dockerfile: ./Dockerfile
+    ports:
+      - "8081:8081"
+  mf_counter:
+    build:
+      context: ./mf-counter
+      dockerfile: ./Dockerfile
+    ports:
+      - "8082:8082"
+  mf_cards:
+    build:
+      context: ./mf-cards
+      dockerfile: ./Dockerfile
+    ports:
+      - "8083:8083"
+  mf_characterDetail:
+    build:
+      context: ./mf-characterDetail
+      dockerfile: ./Dockerfile
+    ports:
+      - "8084:8084"
