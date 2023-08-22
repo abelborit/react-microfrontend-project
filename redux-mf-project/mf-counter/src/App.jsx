@@ -3,10 +3,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+// si se coloca se rompe la aplicación y ya no funciona todo el counter
+// import Counter from "./components/Counter";
+
 import "./index.css";
 
 const App = () => (
   <div className="container">
+    {/* <Counter /> */}
     <div>Name: mf-counter</div>
     <div>Framework: react</div>
     <div>Language: JavaScript</div>

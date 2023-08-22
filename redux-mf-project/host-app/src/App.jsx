@@ -3,15 +3,29 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import NavbarFederated from "NavbarModFed/NavbarFederated";
+import CounterFederated from "CounterModFed/CounterFederated";
+import {
+  StoreProvider,
+  useCounterStore,
+} from "StoreProviderModFed/StoreProviderFederated";
+
 import "./index.css";
 
-const App = () => (
-  <div className="container">
-    <div>Name: host-app</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
-  </div>
-);
+const App = () => {
+  const { counter } = useCounterStore();
 
-ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+  return (
+    <div className="container">
+      <NavbarFederated />
+      <div>Name: host-app - Count ({counter.value})</div>
+      <CounterFederated />
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById("app")).render(
+  <StoreProvider>
+    <App />
+  </StoreProvider>
+);

@@ -43,7 +43,11 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "host_app",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        NavbarModFed: "mf_navbar@http://localhost:8081/remoteEntry.js",
+        CounterModFed: "mf_counter@http://localhost:8082/remoteEntry.js",
+        StoreProviderModFed: "store@http://localhost:8000/remoteEntry.js",
+      },
       exposes: {},
       shared: {
         ...deps,

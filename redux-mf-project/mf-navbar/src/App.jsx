@@ -3,10 +3,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+// import Navbar from "./components/Navbar";
+
 import "./index.css";
 
 const App = () => (
   <div className="container">
+    {/* <Navbar /> */}
     <div>Name: mf-navbar</div>
     <div>Framework: react</div>
     <div>Language: JavaScript</div>

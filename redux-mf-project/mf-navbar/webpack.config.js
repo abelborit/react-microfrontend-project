@@ -43,8 +43,13 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "mf_navbar",
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      remotes: {
+        // para usar el store y redux desde otro microfrontend
+        StoreProviderModFed: "store@http://localhost:8000/remoteEntry.js",
+      },
+      exposes: {
+        "./NavbarFederated": "./src/components/Navbar.jsx",
+      },
       shared: {
         ...deps,
         react: {

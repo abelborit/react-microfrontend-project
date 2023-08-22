@@ -43,8 +43,13 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "mf_counter",
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      remotes: {
+        // para usar el store y redux desde otro microfrontend
+        StoreProviderModFed: "store@http://localhost:8000/remoteEntry.js",
+      },
+      exposes: {
+        "./CounterFederated": "./src/components/Counter.jsx",
+      },
       shared: {
         ...deps,
         react: {

@@ -50,6 +50,8 @@ Hay una arquitectura de la mano con React y Webpack Module Federation, que son t
 - Estilos con Bootstrap (https://getbootstrap.com/docs/5.3/getting-started/introduction/) (colors-picker-mf-project) Se está utilizando solo en el host-app de colors-picker-mf-project para que este use los estilos de bootstrap y sus microfronend tendrán un estilo muy vago y simple ya que no tienen bootstrap.
 - Para utilizar Docker: https://www.docker.com/products/docker-desktop/ y también https://learn.microsoft.com/es-es/windows/wsl/install
 - Para las pruebas E2E: Cypress (npm i cypress -D) se instalará como dependencia de desarrollo y se tendría que hacer en el host u orquestador ya que necesitaría hacer las pruebas ahí para que todo se integre correctamente
+- Manejador de estados globales Redux Toolkit (https://redux-toolkit.js.org/)
+- Para las alertas SweetAlert 2 (https://sweetalert2.github.io/)
 
 - Para levantar servidores de prueba de producción: `npx serve` (cada vez que se coloque este comando me dará un puerto distinto, para yo colocar un puerto en específico es colocar `npx serve -l ####`). Se puede entrar a la carpeta donde se quiere levantar el puerto y colocar `npx serve -l ####` o sino desde su carpeta padre colocar `npx serve -l #### nombre_carpeta`. También se puede colocar el mismo puerto que se definió al principio (por ejemplo 3001) y seguir usando ese, pero la diferencia es que ahora se tendría que levantar el servidor con ese puerto usando `npx serve -l 3000 dist/build`
 - Para hacer un deploy en servidor de internet se está usando: Netlify (hacer del build de las aplicaciones con las URL que te da Netflify para poder deployarlo)
