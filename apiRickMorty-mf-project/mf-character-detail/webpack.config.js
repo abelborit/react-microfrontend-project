@@ -41,7 +41,7 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "mf_characterDetail",
+      name: "mf_character_detail",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {

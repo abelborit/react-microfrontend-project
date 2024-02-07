@@ -50,7 +50,7 @@ module.exports = (_, argv) => ({
           "mf_counter@http://localhost:8082/remoteEntry.js",
         CardsModuleFederation: "mf_cards@http://localhost:8083/remoteEntry.js",
         CharacterDetailModuleFederation:
-          "mf_characterDetail@http://localhost:8084/remoteEntry.js",
+          "mf_character_detail@http://localhost:8084/remoteEntry.js",
       },
       exposes: {},
       shared: {

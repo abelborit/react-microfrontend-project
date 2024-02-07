@@ -16,7 +16,7 @@ WORKDIR /app
 COPY ./package.json .
 
 # para reconstruir los módulos de node
-RUN npm i
+RUN npm install
 
 # el comando COPY (y va de ./ a .) es decir que ./ dice que todo lo que está en este directorio (carpeta del microfrontend), menos lo que está en el .dockerignore, los va a copiar directamente en lo que es el Dockerfile (hacia mi contenedor que es el directorio de trabajo app, es decir que el punto viene a ser ese directorio de tabajo que es app)
 COPY ./ .
@@ -25,9 +25,9 @@ COPY ./ .
 RUN npm run build
 
 # http-server es para levantar servidores HTTP de forma rápida y con la configuración hecha vamos a exponer esos servidores
-RUN npm i http-server
+RUN npm install -g http-server
 
 # exponer los módulos que en este caso será el puerto 8080 (porque estamos en el host)
 EXPOSE 8080
-# definir el comando que toma el control de mi contenedor (dist viene a ser la carpeta compilada)
+# definir el comando que toma el control de mi contenedor (para iniciar el servidor) (dist viene a ser la carpeta compilada)
 CMD ["http-server", "dist", "-p", "8080"]
